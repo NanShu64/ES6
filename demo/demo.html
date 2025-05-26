@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="axios.min.js"></script>
 </head>
 
 <body>
@@ -193,46 +194,520 @@
         //     console.log("forEach", value, "index", index)
         // })
 
-        //创建Set集合
-        //let fruits = new Set() //创建一个空的Set集合
-        let fruits = new Set(['apple', 'orange', 'banana']) //创建一个包含初始值的Set集合
-        //add 向Set集合中添加新的元素
-        fruits.add('mango')
-        //fruits.add("orange") //若该元素已经存在, 则不会重复添加, 因为 Set 中的元素必须唯一
-        console.log("fruits", fruits)
-        //delete 从Set集合中删除元素
-        fruits.delete('banana')
-        console.log("fruits", fruits)
-        //has 检查Set集合是否包含指定元素
-        console.log("fruits.has", fruits.has('banana'))
-        //size 获取Set集合的大小
-        console.log("fruits.size", fruits.size)
-        //使用 Array.from() 方法将 Set集合 转换为 数组
-        let arr = Array.from(fruits)
-        console.log("arr", arr)
-        //使用扩展运算符将 Set集合 转换为 数组
-        let arr1 = [...fruits]
-        console.log("arr1", arr1)
-        //扩展运算符是用于展开可迭代对象(如数组、字符串等)
-        //let web = 'dengruicode.com'
-        let web = 'bilibili'
-        let webArr = [...web] //使用扩展运算符将 字符串 转换为 数组
-        console.log("webArr", webArr) //['b', 'i', 'l', 'i','b', 'i', 'l', 'i']
-        //使用for...of循环遍历 Set集合
-        for (let item of fruits) {
-            console.log("for...of", item)
-        }
-        //使用forEach方法来遍历 Set集合
-        fruits.forEach(value => {
-            console.log("forEach", value)
+        // //创建Set集合
+        // //let fruits = new Set() //创建一个空的Set集合
+        // let fruits = new Set(['apple', 'orange', 'banana']) //创建一个包含初始值的Set集合
+        // //add 向Set集合中添加新的元素
+        // fruits.add('mango')
+        // //fruits.add("orange") //若该元素已经存在, 则不会重复添加, 因为 Set 中的元素必须唯一
+        // console.log("fruits", fruits)
+        // //delete 从Set集合中删除元素
+        // fruits.delete('banana')
+        // console.log("fruits", fruits)
+        // //has 检查Set集合是否包含指定元素
+        // console.log("fruits.has", fruits.has('banana'))
+        // //size 获取Set集合的大小
+        // console.log("fruits.size", fruits.size)
+        // //使用 Array.from()方法将 Set集合转换为数组
+        // let arr = Array.from(fruits)
+        // console.log("arr", arr)
+        // //使用扩展运算符将Set集合转换为数组
+        // let arr1 = [...fruits]
+        // console.log("arr1", arr1)
+        // //扩展运算符是用于展开可迭代对象(如数组、字符串等)
+        // //let web = 'dengruicode.com'
+        // let web = 'bilibili'
+        // let webArr = [...web] //使用扩展运算符将字符串转换为数组
+        // console.log("webArr", webArr) //['b', 'i', 'l', 'i','b', 'i', 'l', 'i']
+        // //使用for...of循环遍历 Set集合
+        // for (let item of fruits) {
+        //     console.log("for...of", item)
+        // }
+        // //使用forEach方法来遍历 Set集合
+        // fruits.forEach(value => {
+        //     console.log("forEach", value)
+        // })
+        // //clear 清空 Set
+        // fruits.clear()
+        // console.log("fruits.size", fruits.size)
+        // //将 数组 转换为 Set集合 实现数组去重
+        // let numberArr = [1, 2, 3, 3, 2, 1]
+        // let numberSet = new Set(numberArr)
+        // console.log(numberSet)
+
+        // //创建Map集合
+        // //let person = new Map() //创建一个空的Map集合
+        // let person = new Map([
+        //     ["name", "邓超"],
+        //     ["gender", "男"],
+        //     ["job", "演员"]
+        // ])
+        // //向Map集合中添加新的元素
+        // person.set('height', 175)
+        // //在Map集合中, 每个键都是唯一的, 当使用相同的键再次调用 set() 方法时, 会替换原来键对应的值
+        // person.set('job', "演员，歌手")
+        // console.log("person", person)
+        // //delete 删除元素
+        // person.delete('gender')
+        // console.log("person", person)
+        // //has 检查Map集合是否包含指定元素
+        // console.log("person.has", person.has('gender'))
+        // //size 获取Map集合的大小
+        // console.log("person.size", person.size)
+        // //将Map集合转换为数组
+        // let arr = Array.from(person)
+        // console.log("arr", arr)
+        // //使用扩展运算符将 Map集合 转换为 数组
+        // let arr1 = [...person]
+        // console.log("arr1", arr1)
+        // //使用for...of循环遍历Map集合
+        // // for(let value of person){
+        // //     console.log("for...of", value)
+        // // }
+        // //解构可以从数组或对象中提取值并赋给变量
+        // //[key, value] 就是一种解构语法, 用于将 Map 集合中的键值对解构为 key 和 value 两个变量
+        // for (let [key, value] of person) {
+        //     console.log("for...of", key, value)
+        // }
+        // //使用forEach方法遍历Map集合的键值对
+        // // person.forEach(value => {
+        // //     console.log("forEach", value)
+        // // })
+        // person.forEach((value, key) => {
+        //     console.log("forEach", key, value)
+        // })
+        // //clear 清空Map集合
+        // person.clear()
+        // console.log("person", person)
+        // console.log("person.size", person.size)
+
+        // //对象
+        // let person = {
+        //     name: "邓超",
+        //     gender: "男",
+        //     job: "演员",
+        // }
+        // //向对象中添加新的属性
+        // person.height = 175
+        // //在对象中，每个键都是唯一的，当使用相同的键再次赋值时，会替换原来键对应的值
+        // person.job = "演员,歌手"
+        // console.log("person", person)
+        // //delete 删除属性
+        // delete person.gender
+        // console.log("person", person)
+        // //has 检查对象是否包含指定属性
+        // let has = "gender" in person
+        // console.log("has", has)
+        // //Object.keys() 获取对象的属性数量
+        // console.log("keysArr", Object.keys(person)) //Object.keys() 用于获取对象属性名的数组
+        // console.log("length", Object.keys(person).length)
+        // //将对象转换为数组
+        // let arr = Object.entries(person) //Object.entries() 用于获取对象的键值对数组
+        // console.log("arr", arr)
+        // //使用for...in循环遍历对象 
+        // //for...of 用于遍历可迭代对象[如数组、Set、Map、字符串等]
+        // //for...in 用于遍历对象的可枚举属性
+        // for (let key in person) {
+        //     console.log("for...in", key, person[key])
+        // }
+        // //使用forEach方法遍历对象的属性和值
+        // Object.entries(person).forEach(([key, value]) => {
+        //     console.log("forEach", key, value)
+        // })
+        // //清空对象
+        // person = {}
+        // console.log("person", person)
+        // console.log("length", Object.keys(person).length)
+
+        // class Person {
+        //     //若在类中没有显式声明属性, 但在构造函数或方法中引用了未声明的属性, 会自动将其视为实例属性
+        //     name //姓名
+        //     web //个人网站
+        //     //构造函数 用于初始化属性
+        //     constructor(name, web) {
+        //         this.name = name
+        //         this.web = web
+        //     }
+        //     //方法 返回个人信息
+        //     info() {
+        //         //return "姓名:" + this.name + " 个人网站:" + this.web
+        //         return `姓名:${this.name} 个人网站:${this.web}` //模板字符串
+        //     }
+        // }
+        // //在面向对象编程中, 实例(instance) 是根据 类(class) 创建的具体对象, 使用 关键字new 可以创建一个类的实例
+        // //创建 Person类 实例 传入 "姓名"、"个人网站" 参数
+        // let person = new Person("邓瑞", "dengruicode.com")
+        // console.log("person", person)
+        // console.log("web", person.web)
+        // console.log("info", person.info())
+
+        //     //私有属性
+        //     class Person {
+        //     name
+        //     #web //私有属性是指仅在类内部可访问和操作的属性, 外部无法直接访问和修改
+
+        //     constructor(name, web) {
+        //         this.name = name
+        //         this.#web = web
+        //     }
+        //     //使用存取器 getter 获取私有属性
+        //     get web() {
+        //         return this.#web
+        //     }
+        //     //使用存取器 setter 设置私有属性
+        //     set web(value) {
+        //         this.#web = value
+        //     }
+        //     info() {
+        //         return `姓名:${this.name} 个人网站:${this.web}`//模板字符串
+        //     }
+        // }
+        // let person = new Person("邓瑞", "dengruicode.com")
+        // console.log("person", person)
+        // console.log("web", person.web) //使用存取器 getter 获取私有属性
+        // console.log("info", person.info())
+        // person.web = "www.dengruicode.com" //使用存取器 setter 设置私有属性
+        // console.log("web", person.web)
+
+        // //继承
+        // //父类
+        // class Person {
+        //     name
+        //     gender
+
+        //     constructor(name, gender) {
+        //         this.name = name
+        //         this.gender = gender
+        //     }
+
+        //     sleep() {
+        //         return `${this.name} 休息中...`
+        //     }
+        // }
+        // //子类
+        // class David extends Person {
+        //     web
+        //     constructor(name, gender, web) {
+        //         super(name, gender) //调用父类构造函数
+
+        //         this.web = web
+        //     }
+        //     eat() {
+        //         return `${this.name} 正在吃饭...`
+        //     }
+        // }
+        // let david = new David("邓瑞", "男", "dengruicode.com")
+        // console.log("david", david)
+        // console.log("web", david.web)
+        // console.log("eat", david.eat())
+        // console.log("gender", david.gender)
+        // console.log("sleep", david.sleep())
+
+        // //解构 可以从数组或对象中提取值并赋给变量
+        // //--- 数组解构
+        // let [x, y] = [1, 2]
+        // console.log("x:", x, "y:", y)
+        // let [, , c] = [10, 20, 30]
+        // console.log("c:", c)
+        // //扩展运算符
+        // let [A, ...B] = [1, 2, 3, 4, 5, 6]
+        // console.log("A:", A, "B:", B)
+        // let [x1, y1 = 200] = [100] //默认值
+        // console.log("x1:", x1, "y1:", y1)
+        // //两数交换
+        // let x2 = 10
+        // let y2 = 20; //不加分号会报错
+        // [x2, y2] = [y2, x2]
+        // console.log("x2:", x2, "y2:", y2)
+        // //--- 对象解构
+        // let person = {
+        //     name: '邓瑞',
+        //     gender: '男',
+        //     web: 'dengruicode.com'
+        // }
+        // let { name } = person
+        // console.log("name:", name)
+        // //重命名
+        // let { name: userName, gender, web } = person
+        // console.log("userName:", userName, "gender:", gender, "web:", web)
+        // //默认值
+        // let { address = "安徽" } = person
+        // console.log("address:", address)
+
+        // //字符串
+        // let web = "bilibili.com"
+        // //length 字符串长度
+        // let len = web.length
+        // console.log("字符串长度:", len)
+        // //toLowerCase 转小写
+        // let str1 = "DAVID".toLowerCase()
+        // console.log("转小写:", str1)
+        // //toUpperCase 转大写
+        // let str2 = "luna".toUpperCase()
+        // console.log("转大写:", str2)
+        // // 返回字符串在索引处的字符
+        // let str3 = web[2]
+        // console.log("返回字符串在索引处的字符:", str3)
+        // // 字符串转为字符数组
+        // let str4 = [...web]//扩展运算符
+        // console.log("字符串转为字符数组:", str4)
+        // //parseInt 字符串转 int
+        // let number = parseInt("168")
+        // console.log("字符串转int:", number)
+        // //replaceAll 字符串替换
+        // let str6 = web.replaceAll("i", "a")
+        // console.log("替换全部字符串:", str6)
+        // let str7 = web.replace("i", "a")
+        // console.log("替换1个字符串:", str7)
+        // //trim 去除字符串两侧指定的字符
+        // let str8 = "   bilibili.com   ".trim()
+        // console.log("去除字符串两侧指定的字符:", str8)
+        // //includes 判断是否包含某个字符串
+        // let result = web.includes("bili") // true
+        // console.log("是否包含某个字符串:", result)
+        // //indexOf 返回字符串中第一次出现某个字符串的位置,若不存在则返回-1
+        // let result2 = web.indexOf("bili")
+        // console.log("返回字符串中第一次出现某个字符串的位置:", result2)
+        // let result3 = "bilibili.com".indexOf("ili")
+        // console.log("返回字符串中第一次出现某个字符串的位置:", result3)
+        // //startsWith  判断一个字符串是否以指定的前缀开头
+        // let result4 = "bilibili.com".startsWith("www")
+        // console.log("判断一个字符串是否以指定的前缀开头:", result4)
+        // //endsWith  判断一个字符串是否以指定的后缀结尾
+        // let result5 = "bilibili.com".endsWith("net")
+        // console.log("判断一个字符串是否以指定的后缀结尾:", result5)
+        // //split 将字符串按照指定字符分割成数组
+        // let arr = "a,b,c,d".split(",")
+        // console.log("将字符串按照指定字符分割成数组:", arr)
+        // // 字符串截取 substr(开始位置,截取长度)
+        // let subStr = web.substr(0, 7) // bilibil
+        // console.log("截取字符串的前7个字符:", subStr)
+        // let subStr2 = web.substr(-3) //com
+        // console.log("截取字符串的最后3个字符:", subStr2)
+        // let subStr3 = web.substr(4) //ruicode.com [字符串下标是从 0 开始]
+        // console.log("从字符串的第5个位置开始截取直至字符串末尾:", subStr3)
+        // //repeat 重复字符串
+        // let repeatstr = "David".repeat(3)
+        // console.log("重复3次字符串", repeatstr)
+        // //padStart 在字符串前添加指定数量的填充字符, 直到该字符串达到指定的长度
+        // let padStart = "David".padStart(15, "-") //由于 David 占 5 个字符, 因此只需要再添加 10 个横线, 即可达到总长度 15
+        // //let padStart = "David".padStart(15) //默认空格
+        // console.log("padStart:", padStart)
+        // //adEnd 在字符串后添加指定数量的填充字符, 直到该字符串达到指定的长度
+        // let padEnd = "David".padEnd(10, "-")
+        // console.log("padEnd:", padEnd)
+
+
+        /*
+       Promise 表示承诺在未来的某个时刻可能会完成并返回结果
+       
+       对于某些需要时间来处理结果的操作, 如用户登录、读取文件等, 可以使用 Promise 对象来执行异步操作
+       Promise 对象有三种状态 pending(待处理)、fulfilled(已履行)、rejected(被驳回)
+       
+       当创建一个 Promise 对象时, 它的初始状态为 pending, 表示异步执行还未完成
+       当异步执行成功时, 会调用 resolve 函数把 Promise 对象的状态改变为 fulfilled, 可通过 then 方法来获取异步操作的结果
+       当异步执行异常时, 会调用 reject 函数把 Promise 对象的状态更改为 rejected, 可通过 catch 方法来处理错误
+       
+       注
+           异步操作是指在程序执行过程中, 某个操作不会立即返回结果, 而是需要一段时间的等待
+       */
+
+        /*
+        let promise = new Promise((resolve, reject) => {
+            
         })
-        //clear 清空 Set
-        fruits.clear()
-        console.log("fruits.size", fruits.size)
-        //将 数组 转换为 Set集合 实现数组去重
-        let numberArr = [1, 2, 3, 3, 2, 1]
-        let numberSet = new Set(numberArr)
-        console.log(numberSet)
+        
+        //当创建一个 Promise 对象时, 它的初始状态为 pending, 表示异步执行还未完成
+        console.log("promise:", promise) //pending
+        */
+
+        /*
+        let promise = new Promise((resolve, reject) => {
+            resolve("邮件发送成功") //异步执行成功
+        })
+        //当异步执行成功时, 会调用 resolve 函数把 Promise 对象的状态改变为 fulfilled, 可通过 then 方法来获取异步操作的结果
+        console.log("promise:", promise) //fulfilled
+        
+        promise.then(result => {
+            console.log("result:", result)
+        })
+        */
+
+        /*
+        let promise = new Promise((resolve, reject) => {
+            reject("邮件发送失败") //异步执行失败
+        })
+        //当异步执行失败时, 会调用 reject 函数把 Promise 对象的状态更改为 rejected, 可通过 catch 方法来处理错误
+        console.log("promise:", promise) //rejected
+        //catch捕获
+        promise.catch(error => {
+            console.log("error:", error)
+        })
+        */
+        // let promise = new Promise((resolve, reject) => {
+        //     // resolve("邮件发送成功")
+        //     reject("邮件发送失败")
+        // }).then(result => {
+        //     console.log("result:", result)
+        // }).catch(error => {
+        //     console.log("error:", error)
+        // }).finally(() => {
+        //     console.log("异步执行结束")
+        // })
+
+        //     //Fetch
+        //     /*
+        //     fetch 是基于 Promise 的 api, 它可以发送http请求并接收服务器返回的响应数据
+        //     fetch 返回的是一个 Promise 对象
+        // */
+        //     //get请求
+        //     fetch('http://127.0.0.1/get').then(response => {
+        //         //返回的解析后的json数据会传递给下一个 then()方法中的回调函数作为参数,这个参数就是data
+        //         return response.json() //response.json() 用于将响应数据解析为json格式的数据
+        //     }).then(data => { //data 解析后的json数据
+        //         console.log("get.data:", data)
+        //     }).catch(error => {
+        //         console.log("get.error:", error.message)
+        //     }).finally(() => {
+        //         console.log("get.finally")
+        //     })
+
+        //     //post请求post
+        //     fetch('http://127.0.0.1/post', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/x-www-form-urlencoded'
+        //         },
+        //         body: new URLSearchParams({//URLSearchParams 用于处理键值对类型的数据,并将其编码为url查询字符串
+        //             name: '邓瑞',
+        //             web: 'dengruicode.com',
+        //         }),
+        //     }).then(response => {
+        //         return response.json()
+        //     }).then(data => {
+        //         console.log("post.data:", data)
+        //     }).catch(error => {
+        //         console.log("post.error:", error.message)
+        //     }).finally(() => {
+        //         console.log("post.finally")
+        //     })
+
+        //     //post请求postJson
+        //     fetch('http://127.0.0.1/postJson', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({//JSON.stringify 用于将对象转换为json字符串
+        //             name: '邓瑞编程',
+        //             web: 'www.dengruicode.com',
+        //         }),
+        //     }).then(response => {
+        //         return response.json()
+        //     }).then(data => {
+        //         console.log("postJson.data:", data)
+        //     }).catch(error => {
+        //         console.log("postJson.error:", error.message)
+        //     }).finally(() => {
+        //         console.log("postJson.finally")
+        //     })
+
+
+        /*
+            Axios 是基于 Promise 的网络请求库, 它可以发送http请求并接收服务器返回的响应数据
+            Axios 返回的是一个 Promise 对象
+    
+            Axios 不仅可以用于浏览器, 也可以用于 Node.js, 而 Fetch 主要用于浏览器
+        */
+
+        // //get请求
+        // axios.get('http://127.0.0.1/get').then(response => {
+        //     console.log("get.data:", response.data)
+        // }).catch(error => {
+        //     console.log("get.error:", error)
+        // }).finally(() => {
+        //     console.log("get.finally")
+        // })
+
+        // //post请求 post
+        // let data = { //参数
+        //     name: '邓瑞',
+        //     web: 'dengruicode.com',
+        // }
+        // axios.post('http://127.0.0.1/post', data, {
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded'
+        //     }
+        // }).then(response => {
+        //     console.log("post.data:", response.data)
+        // }).catch(error => {
+        //     console.log("post.error:", error)
+        // }).finally(() => {
+        //     console.log("post.finally")
+        // })
+
+        // //post请求 postJson [axios 的默认请求头是 application/json]
+        // axios.post('http://127.0.0.1/postJson', data).then(response => {
+        //     console.log("postJson.data:", response.data)
+        // }).catch(error => {
+        //     console.log("postJson.error:", error)
+        // }).finally(() => {
+        //     console.log("postJson.finally")
+        // })
+
+        //async\await
+        //回调地狱是指过度使用嵌套的回调函数,导致代码难以阅读和维护
+        //get请求
+        axios.get('http://127.0.0.1/get').then(response => {
+            console.log("get.data:", response.data)
+            if (response.data.data.web == "dengruicode.com") {
+
+                //get请求2
+                return axios.get('http://127.0.0.1/article/get/id/1').then(response2 => {
+                    console.log("get2.data:", response2.data)
+                    if (response2.data.data.name == "邓瑞") {
+
+                        //get请求3
+                        return axios.get('http://127.0.0.1/article/get/search/title/入门').then(response3 => {
+                            console.log("get3.data:", response3.data)
+                        })
+                    }
+                })
+            }
+        }).catch(error => {
+            console.log("get.error:", error)
+        }).finally(() => {
+            console.log("get.finally")
+        })
+
+        //async/await 使用同步的方式编写异步代码, 避免回调地狱
+        //优势 在处理多个异步操作的情况下, 可以使代码更简洁易读
+        const getData = async () => {
+            try {
+                //get请求
+                const response = await axios.get('http://127.0.0.1/get')
+                console.log("async.get.data:", response.data)
+                if (response.data.data.web === "dengruicode.com") {
+
+                    //get请求2
+                    const response2 = await axios.get('http://127.0.0.1/article/get/id/1')
+                    console.log("async.get2.data:", response2.data)
+                    if (response2.data.data.name === "邓瑞") {
+
+                        //get请求3
+                        const response3 = await axios.get('http://127.0.0.1/article/get/search/title/入门')
+                        console.log("async.get3.data:", response3.data)
+                    }
+                }
+
+            } catch (error) {
+                console.log("async.get.error:", error)
+            } finally {
+                console.log("async.get.finally")
+            }
+        }
+
+        getData()
     </script>
 </body>
 
